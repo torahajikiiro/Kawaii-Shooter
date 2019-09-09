@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
 
-    public Score Score;
+    // public ScoreController Score;
     // public static int DeadCount = 0;
 
+    void Awake()
+    {
+        GameManager.ListEnemyController.Add(this);
+    }
+
+    public void Die()
+    {
+        gameObject.SetActive(false);
+    }
+
     void OnTriggerEnter(Collider other)
-    {        
+    {
         if (other.CompareTag("Bullet"))
         {
-            Score.DeadCount++;
-            // DeadCount++;
-            gameObject.SetActive(false);
+            GameManager.OnEnemyDie(this);
         }
         Debug.Log("Something enter!");
     }

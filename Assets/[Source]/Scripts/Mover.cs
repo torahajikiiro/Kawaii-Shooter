@@ -13,12 +13,10 @@ public class Mover : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        Debug.Log("Start");
+    {        
         //gameObject.SetActive(false);
         //enabled = false;
         LeanTouch.OnFingerSet += OnTouch;
-
     }
 
     void OnTouch(LeanFinger finger)

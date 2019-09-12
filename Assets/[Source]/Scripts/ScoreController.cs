@@ -9,16 +9,23 @@ public class ScoreController : MonoBehaviour
     public Text TextWin;
     public Text TextScore;
     public Image ImageBackground;
+    public RectTransform PanelContainer;
     public int ScoreToWin; // so enemy can giet de win
     public int Score;
 
+    // Duoc goi khi lan dau game object duoc active
     void Awake()
     {
+        // Debug.Log("Awake");
         GameManager.ScoreController = this;
 
-        ImageBackground.gameObject.SetActive(false);
-        TextWin.gameObject.SetActive(false);
-        TextScore.gameObject.SetActive(false);
+        PanelContainer.gameObject.SetActive(false);
+    }
+
+    // Duoc goi khi script lan dau tien duoc enable
+    void Start()
+    {
+        // Debug.Log("Start");
     }
 
     public void AddScore(int scoreToAdd)
@@ -34,8 +41,6 @@ public class ScoreController : MonoBehaviour
 
     public void ShowWinning()
     {
-        ImageBackground.gameObject.SetActive(true);
-        TextWin.gameObject.SetActive(true);
-        TextScore.gameObject.SetActive(true);
+        PanelContainer.gameObject.SetActive(true);
     }
 }

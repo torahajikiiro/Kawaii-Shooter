@@ -6,6 +6,7 @@ public class Shooter : MonoBehaviour
 {
 
     public Vector3 Offset = new Vector3(1, 0, 0);
+    public Animator Animator;
     public GameObject BulletPrefab;
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class Shooter : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Animator.SetTrigger("Attack");
             var newBullet = Instantiate(BulletPrefab, transform.position + Offset, Quaternion.Euler(0, 0, 90));
         }
     }
